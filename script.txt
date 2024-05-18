@@ -1,0 +1,22 @@
+function onFormSubmit(e) {
+  const form = FormApp.getActiveForm();
+  let formResponses = form.getResponses();
+  let latestFR = formResponses[form.getResponses().length-1];
+
+  const itemResponses = latestFR.getItemResponses()
+
+  let katalog = itemResponses[0].getResponse();
+  let email = itemResponses[1].getResponse();
+  var now = new Date();
+
+  if(katalog == "Katalog Setup PC")
+  {
+    GmailApp.sendEmail(email, "Link Katalog Setup PC", "Berikut ini adalah link Anda : " + "https://drive.google.com/drive/folders/1b-Rn1M_uKgxn7zqJZPNaPgd6fhxBpPHu?usp=drive_link");
+  }
+  else
+  {
+    GmailApp.sendEmail(email, "Katalog Supporting Tools programmer", "Berikut ini adalah link Anda : " + "https://drive.google.com/drive/folders/1R_oqeMcNWm9SNLqxEpT0WTq5Hm0bY2MJ?usp=drive_link");
+  }
+  
+
+}
